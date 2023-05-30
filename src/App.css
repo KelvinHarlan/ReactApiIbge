@@ -1,0 +1,26 @@
+.container .title{
+    align-self: center;
+}
+.container{
+    background-color: rgba(0, 228, 30, 0.411);
+    min-height: 70vh;
+    margin-top: 5vh;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container label{
+    font-weight: bold;
+}
+
+.container select{
+    height:50px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0 25px 0;
+    padding-left: 10px;
+
+}
