@@ -6,8 +6,8 @@ function App() {
   const [regions, setRegions] = useState([]);
   const [regionSelected, setRegioSelected] = useState('');
   const handleChangeRegion = ({ target }) => { setRegioSelected(target.value) };
-
-
+  const [name, setName] = useState('');
+  const handleChanName = ({target}) => {setName(target.value)};
   //Região API
   useEffect(() => {
     const url = `https://servicodados.ibge.gov.br/api/v1/localidades/regioes`;
@@ -35,17 +35,10 @@ function App() {
       })
   }, [regionSelected])
 
-
-
-
-
-
-
   //Município
   const [municipality, setMunicipality] = useState([]);
   const [municipalitySelected, setMunicipalitySelected] = useState('');
   const handleChangMunicipality = ({ target }) => { setMunicipalitySelected(target.value) };
-
 
   //Município API
   useEffect(() => {
@@ -56,16 +49,14 @@ function App() {
       .then(data => {
         setMunicipality(data)
       })
-  }, [regionSelected,statesSelected])
-
-
-
-
-
+  }, [regionSelected, statesSelected])
 
   return (
+   
     <div className="container">
       <h2 className='title'>Preecha os dados</h2>
+      <label htmlFor="name">Digite seu nome:</label>
+      <input onChange={handleChanName} type="text" />
       {/*Região*/}
       <label htmlFor="regiao">Selecione sua Região:</label>
       <select name="regiao" id="regiao" onChange={handleChangeRegion} value={regionSelected}>
@@ -92,6 +83,7 @@ function App() {
       {/*Município*/}
       {statesSelected &&
         <>
+
           <label htmlFor="municipio">Selecione o Municípoio:</label>
           <select onChange={handleChangMunicipality} name="municipio" id="municipio">
             <option value={null}>Selecione um Município</option>

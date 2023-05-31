@@ -11,8 +11,16 @@
     flex-direction: column;
 }
 
+.container input{
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    }
+
 .container label{
     font-weight: bold;
+    
 }
 
 .container select{
